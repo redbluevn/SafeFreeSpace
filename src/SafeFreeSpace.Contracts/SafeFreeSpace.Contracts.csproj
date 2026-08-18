@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>SafeFreeSpace.Contracts</AssemblyName>
+    <RootNamespace>SafeFreeSpace.Contracts</RootNamespace>
+  </PropertyGroup>
+</Project>

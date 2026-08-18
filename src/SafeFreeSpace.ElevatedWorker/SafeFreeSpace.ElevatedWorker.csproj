@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>SafeFreeSpace.ElevatedWorker</AssemblyName>
+    <RootNamespace>SafeFreeSpace.ElevatedWorker</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SafeFreeSpace.Contracts\SafeFreeSpace.Contracts.csproj" />
+    <ProjectReference Include="..\SafeFreeSpace.Core\SafeFreeSpace.Core.csproj" />
+    <ProjectReference Include="..\SafeFreeSpace.Infrastructure.Windows\SafeFreeSpace.Infrastructure.Windows.csproj" />
+  </ItemGroup>
+</Project>

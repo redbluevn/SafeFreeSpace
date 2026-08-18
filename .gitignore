@@ -1,0 +1,32 @@
+# Build outputs
+bin/
+obj/
+out/
+publish/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet
+*.nupkg
+**/packages/*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs (local dev)
+*.log
+
+# Lock files managed by source control
+# Keep package lock files in source control for supply-chain
+!packages.lock.json

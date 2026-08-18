@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SafeFreeSpace.App/SafeFreeSpace.App.csproj" />
+    <Project Path="src/SafeFreeSpace.Contracts/SafeFreeSpace.Contracts.csproj" />
+    <Project Path="src/SafeFreeSpace.Core/SafeFreeSpace.Core.csproj" />
+    <Project Path="src/SafeFreeSpace.ElevatedWorker/SafeFreeSpace.ElevatedWorker.csproj" />
+    <Project Path="src/SafeFreeSpace.Infrastructure.Windows/SafeFreeSpace.Infrastructure.Windows.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SafeFreeSpace.Tests.Integration/SafeFreeSpace.Tests.Integration.csproj" />
+    <Project Path="tests/SafeFreeSpace.Tests.Unit/SafeFreeSpace.Tests.Unit.csproj" />
+  </Folder>
+</Solution>

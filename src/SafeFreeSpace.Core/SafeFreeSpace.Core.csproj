@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>SafeFreeSpace.Core</AssemblyName>
+    <RootNamespace>SafeFreeSpace.Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SafeFreeSpace.Contracts\SafeFreeSpace.Contracts.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+<Application x:Class="SafeFreeSpace.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:SafeFreeSpace.App.Converters"
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Strings.vi.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+            <converters:StringEmptyToVisibilityConverter x:Key="StringEmptyToVisibilityConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
