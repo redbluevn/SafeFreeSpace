@@ -505,3 +505,27 @@ Status: Complete
 - TOCTOU giữa lúc re-validate volume và lúc cipher ghi theo drive letter chưa khóa volume (`FSCTL_LOCK_VOLUME`).
 - FakeInventory trong unit tests worker bỏ qua tham số `driveLetter` (không bắt được bug lookup sai ổ).
 - Fallback WMI path không đọc được isReadOnly/isDirty (giới hạn `Win32_Volume`).
+
+---
+
+## Milestone 9 — Installer (Inno Setup)
+
+Status: Complete
+
+### Implemented
+- `installer.iss` (Inno Setup 6): cài `SafeFreeSpace.exe` + `SafeFreeSpace.ElevatedWorker.exe` vào `Program Files\SafeFreeSpace` (yêu cầu admin, bảo vệ worker exe khỏi bị sửa), shortcut Start Menu + Desktop (tùy chọn), hiện MIT LICENSE khi cài, tùy chọn chạy app sau cài.
+- Sửa `ElevatedWorkerLauncher.FindWorkerExecutable`: bỏ `Assembly.Location` (rỗng trong single-file app, lỗi analyzer IL3000), dùng `AppContext.BaseDirectory` — đường dẫn worker exe đúng cho cả bản single-file.
+- `.gitignore` thêm `artifacts/`.
+
+### Verification
+- Publish self-contained single-file win-x64: PASS (sửa IL3000 trước khi publish được).
+- `ISCC.exe installer.iss`: PASS → `artifacts/installer/SafeFreeSpace-Setup-1.0.0-dev-win-x64.exe` (~108 MB).
+- SHA-256 installer: `68EC8387BAF15D3502D14C98EDC79407EF80CB6D7D822F27EF55D403F2F3C824`
+- `dotnet build -c Release`: PASS (0 warning, 0 error)
+- `dotnet test -c Release --no-build`: PASS (97 unit, 2 VHD skipped)
+- `dotnet format --verify-no-changes`: PASS
+
+### Known limitations
+- Installer chưa code-sign → SmartScreen có thể cảnh báo khi chạy.
+- `publish.ps1` yêu cầu PowerShell 7.2+ (`#Requires -Version 7.2`); máy chỉ có Windows PowerShell 5.1 thì chạy các lệnh `dotnet publish` thủ công như trong script.
+- Chưa test chạy installer end-to-end (cài → chạy app → gỡ cài) trên máy sạch.

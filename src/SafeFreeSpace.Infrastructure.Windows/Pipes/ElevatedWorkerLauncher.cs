@@ -1,7 +1,6 @@
 namespace SafeFreeSpace.Infrastructure.Windows.Pipes;
 
 using System.Diagnostics;
-using System.Reflection;
 using System.Text;
 using SafeFreeSpace.Contracts;
 
@@ -49,17 +48,8 @@ public sealed class ElevatedWorkerLauncher
 
     private static string FindWorkerExecutable()
     {
-        string? assemblyLocation = Assembly.GetEntryAssembly()?.Location;
-        if (!string.IsNullOrEmpty(assemblyLocation))
-        {
-            string directory = Path.GetDirectoryName(assemblyLocation)!;
-            string candidate = Path.Combine(directory, "SafeFreeSpace.ElevatedWorker.exe");
-            if (File.Exists(candidate))
-            {
-                return candidate;
-            }
-        }
-
+        // AppContext.BaseDirectory hoạt động đúng cả với single-file publish
+        // (Assembly.Location rỗng trong single-file app — analyzer IL3000).
         string appDirectory = AppContext.BaseDirectory;
         string fallback = Path.Combine(appDirectory, "SafeFreeSpace.ElevatedWorker.exe");
         return fallback;

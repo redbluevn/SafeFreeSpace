@@ -3,6 +3,7 @@ bin/
 obj/
 out/
 publish/
+artifacts/
 
 # Visual Studio / VS Code
 .vs/
